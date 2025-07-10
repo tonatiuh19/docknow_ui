@@ -1,0 +1,98 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "search": "Search",
+    "filter": "Filter",
+    "reset": "Reset",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit"
+  },
+  "navigation": {
+    "home": "Home",
+    "ports": "Ports",
+    "reservations": "My Reservations",
+    "profile": "Profile",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out"
+  },
+  "home": {
+    "title": "Find Your Perfect Marina",
+    "subtitle": "Discover and reserve boat docking spaces at ports worldwide",
+    "searchPlaceholder": "Search ports, cities, or countries...",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "guests": "Guests",
+    "boatLength": "Boat Length (ft)"
+  },
+  "ports": {
+    "title": "Available Ports",
+    "noResults": "No ports found",
+    "pricePerNight": "per night",
+    "viewDetails": "View Details",
+    "bookNow": "Book Now",
+    "amenities": "Amenities",
+    "specifications": "Specifications",
+    "reviews": "Reviews",
+    "contact": "Contact",
+    "maxBoatLength": "Max Boat Length",
+    "depth": "Depth",
+    "electricity": "Electricity",
+    "water": "Water",
+    "wifi": "WiFi",
+    "fuel": "Fuel",
+    "security": "Security"
+  },
+  "booking": {
+    "title": "Complete Your Reservation",
+    "guestInformation": "Guest Information",
+    "boatDetails": "Boat Details",
+    "paymentDetails": "Payment Details",
+    "bookingConfirmation": "Booking Confirmation",
+    "totalPrice": "Total Price",
+    "taxes": "Taxes & Fees",
+    "confirmBooking": "Confirm Booking",
+    "boatName": "Boat Name",
+    "boatType": "Boat Type",
+    "boatLength": "Boat Length",
+    "boatWidth": "Boat Width"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "name": "Full Name",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signInWithGoogle": "Sign in with Google",
+    "orContinueWith": "Or continue with",
+    "guestMode": "Continue as Guest"
+  },
+  "filters": {
+    "title": "Filters",
+    "location": "Location",
+    "priceRange": "Price Range",
+    "minPrice": "Min Price",
+    "maxPrice": "Max Price",
+    "rating": "Rating",
+    "amenities": "Amenities",
+    "clearAll": "Clear All"
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email",
+    "password": "Password must be at least 8 characters",
+    "confirmPassword": "Passwords do not match"
+  }
+}

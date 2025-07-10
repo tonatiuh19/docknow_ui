@@ -1,0 +1,98 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "reset": "Restablecer",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Enviar"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "ports": "Puertos",
+    "reservations": "Mis Reservas",
+    "profile": "Perfil",
+    "signIn": "Iniciar Sesión",
+    "signUp": "Registrarse",
+    "signOut": "Cerrar Sesión"
+  },
+  "home": {
+    "title": "Encuentra Tu Marina Perfecta",
+    "subtitle": "Descubre y reserva espacios de atraque en puertos de todo el mundo",
+    "searchPlaceholder": "Buscar puertos, ciudades o países...",
+    "checkIn": "Llegada",
+    "checkOut": "Salida",
+    "guests": "Huéspedes",
+    "boatLength": "Longitud del Barco (ft)"
+  },
+  "ports": {
+    "title": "Puertos Disponibles",
+    "noResults": "No se encontraron puertos",
+    "pricePerNight": "por noche",
+    "viewDetails": "Ver Detalles",
+    "bookNow": "Reservar Ahora",
+    "amenities": "Servicios",
+    "specifications": "Especificaciones",
+    "reviews": "Reseñas",
+    "contact": "Contacto",
+    "maxBoatLength": "Longitud Máxima del Barco",
+    "depth": "Profundidad",
+    "electricity": "Electricidad",
+    "water": "Agua",
+    "wifi": "WiFi",
+    "fuel": "Combustible",
+    "security": "Seguridad"
+  },
+  "booking": {
+    "title": "Complete Su Reserva",
+    "guestInformation": "Información del Huésped",
+    "boatDetails": "Detalles del Barco",
+    "paymentDetails": "Detalles de Pago",
+    "bookingConfirmation": "Confirmación de Reserva",
+    "totalPrice": "Precio Total",
+    "taxes": "Impuestos y Tasas",
+    "confirmBooking": "Confirmar Reserva",
+    "boatName": "Nombre del Barco",
+    "boatType": "Tipo de Barco",
+    "boatLength": "Longitud del Barco",
+    "boatWidth": "Ancho del Barco"
+  },
+  "auth": {
+    "signIn": "Iniciar Sesión",
+    "signUp": "Registrarse",
+    "email": "Email",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar Contraseña",
+    "name": "Nombre Completo",
+    "forgotPassword": "¿Olvidó su contraseña?",
+    "noAccount": "¿No tiene cuenta?",
+    "hasAccount": "¿Ya tiene cuenta?",
+    "signInWithGoogle": "Iniciar sesión con Google",
+    "orContinueWith": "O continuar con",
+    "guestMode": "Continuar como invitado"
+  },
+  "filters": {
+    "title": "Filtros",
+    "location": "Ubicación",
+    "priceRange": "Rango de Precio",
+    "minPrice": "Precio Mín",
+    "maxPrice": "Precio Máx",
+    "rating": "Calificación",
+    "amenities": "Servicios",
+    "clearAll": "Limpiar Todo"
+  },
+  "validation": {
+    "required": "Este campo es requerido",
+    "email": "Por favor ingrese un email válido",
+    "password": "La contraseña debe tener al menos 8 caracteres",
+    "confirmPassword": "Las contraseñas no coinciden"
+  }
+}

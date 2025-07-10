@@ -1,0 +1,98 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "save": "Sauvegarder",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "reset": "Réinitialiser",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "submit": "Soumettre"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "ports": "Ports",
+    "reservations": "Mes Réservations",
+    "profile": "Profil",
+    "signIn": "Se Connecter",
+    "signUp": "S'Inscrire",
+    "signOut": "Se Déconnecter"
+  },
+  "home": {
+    "title": "Trouvez Votre Marina Parfaite",
+    "subtitle": "Découvrez et réservez des places d'amarrage dans les ports du monde entier",
+    "searchPlaceholder": "Rechercher ports, villes ou pays...",
+    "checkIn": "Arrivée",
+    "checkOut": "Départ",
+    "guests": "Invités",
+    "boatLength": "Longueur du Bateau (ft)"
+  },
+  "ports": {
+    "title": "Ports Disponibles",
+    "noResults": "Aucun port trouvé",
+    "pricePerNight": "par nuit",
+    "viewDetails": "Voir Détails",
+    "bookNow": "Réserver",
+    "amenities": "Équipements",
+    "specifications": "Spécifications",
+    "reviews": "Avis",
+    "contact": "Contact",
+    "maxBoatLength": "Longueur Max du Bateau",
+    "depth": "Profondeur",
+    "electricity": "Électricité",
+    "water": "Eau",
+    "wifi": "WiFi",
+    "fuel": "Carburant",
+    "security": "Sécurité"
+  },
+  "booking": {
+    "title": "Complétez Votre Réservation",
+    "guestInformation": "Informations Invité",
+    "boatDetails": "Détails du Bateau",
+    "paymentDetails": "Détails de Paiement",
+    "bookingConfirmation": "Confirmation de Réservation",
+    "totalPrice": "Prix Total",
+    "taxes": "Taxes et Frais",
+    "confirmBooking": "Confirmer la Réservation",
+    "boatName": "Nom du Bateau",
+    "boatType": "Type de Bateau",
+    "boatLength": "Longueur du Bateau",
+    "boatWidth": "Largeur du Bateau"
+  },
+  "auth": {
+    "signIn": "Se Connecter",
+    "signUp": "S'Inscrire",
+    "email": "Email",
+    "password": "Mot de Passe",
+    "confirmPassword": "Confirmer le Mot de Passe",
+    "name": "Nom Complet",
+    "forgotPassword": "Mot de passe oublié?",
+    "noAccount": "Pas de compte?",
+    "hasAccount": "Déjà un compte?",
+    "signInWithGoogle": "Se connecter avec Google",
+    "orContinueWith": "Ou continuer avec",
+    "guestMode": "Continuer en tant qu'invité"
+  },
+  "filters": {
+    "title": "Filtres",
+    "location": "Localisation",
+    "priceRange": "Gamme de Prix",
+    "minPrice": "Prix Min",
+    "maxPrice": "Prix Max",
+    "rating": "Note",
+    "amenities": "Équipements",
+    "clearAll": "Tout Effacer"
+  },
+  "validation": {
+    "required": "Ce champ est requis",
+    "email": "Veuillez entrer un email valide",
+    "password": "Le mot de passe doit contenir au moins 8 caractères",
+    "confirmPassword": "Les mots de passe ne correspondent pas"
+  }
+}
