@@ -187,7 +187,7 @@ export default function ReservationsPage() {
               <span>Filter</span>
             </button>
 
-            <button className="flex items-center space-x-2 px-6 py-2 bg-ocean-600 text-white rounded-lg hover:bg-ocean-700 transition-colors">
+            <button className={styles.newReservationButton}>
               <Plus className="w-4 h-4" />
               <span>New Reservation</span>
             </button>

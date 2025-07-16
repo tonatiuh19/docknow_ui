@@ -257,3 +257,38 @@
 .totalLabel {
   font-weight: 500; /* font-medium */
 }
+
+.newReservationButton {
+  width: 100%;
+  background: var(--color-navy-800);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 300ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .newReservationButton {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+.newReservationButton:hover {
+  background: var(--color-navy-900);
+  transform: translateY(-1px);
+}
+
+.newReservationButton:hover .searchIcon {
+  transform: scale(1.1);
+}
