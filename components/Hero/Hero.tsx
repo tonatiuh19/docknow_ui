@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import SearchBar from "../SearchBar";
-import InteractivePortMap from "../InteractivePortMap";
+import SearchBar from "../SearchBar/SearchBar";
+import InteractivePortMap from "../InteractivePortMap/InteractivePortMap";
 import { Port } from "@/types";
 import { Search, Calendar, MapPin, Anchor } from "lucide-react";
 import styles from "./Hero.module.css";
@@ -89,7 +89,7 @@ export default function Hero() {
                 <span className={styles.headingPrimary}>Find & Reserve</span>
                 <span className={styles.headingPrimary}>Boat Docking</span>
                 <span className={styles.headingPrimary}>Spaces</span>
-                <span className={styles.headingAccent}>Worldwide</span>
+                <span className={styles.headingPrimary}>Worldwide</span>
               </h1>
               <p className={styles.subHeading}>
                 Discover ports, explore facilities, and book your perfect

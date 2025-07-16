@@ -4,10 +4,10 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { fetchPorts } from "@/store/slices/portsSlice";
-import PortsList from "@/components/PortsList";
-import PortsMap from "@/components/PortsMap";
-import PortFilters from "@/components/PortFilters";
-import SearchBar from "@/components/SearchBar";
+import PortsList from "@/components/PortsList/PortsList";
+import PortsMap from "@/components/PortsMap/PortsMap";
+import PortFilters from "@/components/PortFilters/PortFilters";
+import SearchBar from "@/components/SearchBar/SearchBar";
 import { Filter, Map, List, Search, SlidersHorizontal } from "lucide-react";
 
 export default function PortsPage() {

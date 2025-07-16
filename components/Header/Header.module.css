@@ -60,6 +60,18 @@
   text-decoration: none;
 }
 
+.logoImage {
+  height: 3rem;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  transition: all 300ms;
+}
+
+.logoImage:hover {
+  transform: scale(1.05);
+}
+
 .logoIcon {
   width: 2.5rem;
   height: 2.5rem;
@@ -84,24 +96,13 @@
 }
 
 .logoIconArrow {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
 }
 
 .logoIconScrolledArrow {
-  color: white;
-}
-
-.logoIconDefaultArrow {
-  color: var(--color-ocean-600);
-}
-
-.logoText {
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.025em;
-  transition: color 300ms;
-  color: white;
+  filter: brightness(0) invert(1); /* Makes logo white when scrolled */
 }
 
 .nav {

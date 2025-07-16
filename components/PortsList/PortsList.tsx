@@ -1,5 +1,5 @@
 import { Port } from "@/types";
-import PortCard from "../PortCard";
+import PortCard from "../PortCard/PortCard";
 
 interface PortsListProps {
   ports: Port[];

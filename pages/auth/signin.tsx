@@ -42,12 +42,11 @@ export default function SignIn() {
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         {/* Logo */}
         <div className="flex justify-center">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-ocean-500 rounded-lg flex items-center justify-center">
-              <MapPin className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-2xl font-bold text-gray-900">DockNow</span>
-          </div>
+          <img
+            src="https://garbrix.com/navios/assets/images/logo.png"
+            alt="DOCK NOW Logo"
+            className="h-12 w-auto object-contain"
+          />
         </div>
 
         <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">

@@ -1,6 +1,6 @@
 import { useAppSelector } from "@/store";
 import { Port } from "@/types";
-import PortCard from "../PortCard";
+import PortCard from "../PortCard/PortCard";
 
 export default function FeaturedPrivatePorts() {
   const { ports, loading } = useAppSelector((state) => state.ports);

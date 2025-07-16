@@ -81,18 +81,18 @@
   z-index: 20;
   max-width: 80rem;
   margin: 0 auto;
-  padding: 5rem 1rem 3rem;
+  padding: 8rem 1rem 3rem; /* Increased top padding from 5rem to 8rem */
 }
 
 @media (min-width: 640px) {
   .contentContainer {
-    padding: 6rem 1.5rem 4rem;
+    padding: 9rem 1.5rem 4rem; /* Increased top padding from 6rem to 9rem */
   }
 }
 
 @media (min-width: 1024px) {
   .contentContainer {
-    padding: 5rem 2rem 3rem;
+    padding: 8rem 2rem 3rem; /* Increased top padding from 5rem to 8rem */
   }
 }
 
@@ -167,8 +167,15 @@
 }
 
 .headingAccent {
-  color: var(--color-ocean-300);
-  display: block;
+  color: var(--color-navy-800);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  -webkit-text-stroke: 0.5px white;
+  text-shadow: -0.5px -0.5px 0 white, 0.5px -0.5px 0 white, -0.5px 0.5px 0 white,
+    0.5px 0.5px 0 white, 0 -0.5px 0 white, 0 0.5px 0 white, -0.5px 0 0 white,
+    0.5px 0 0 white;
 }
 
 .subHeading {

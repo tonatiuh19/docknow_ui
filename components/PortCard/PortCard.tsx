@@ -39,7 +39,10 @@ export default function PortCard({ port }: PortCardProps) {
           ${port.pricePerNight}/per night
         </div>
         {port.portType === "private_port" && (
-          <div className="absolute top-4 left-4 bg-purple-600 text-white px-3 py-2 rounded-xl text-xs font-medium flex items-center space-x-1 shadow-md">
+          <div
+            className="absolute top-4 left-4 text-navy-800 px-3 py-2 rounded-xl text-xs font-medium flex items-center space-x-1 shadow-md"
+            style={{ backgroundColor: "var(--color-primary-50)" }}
+          >
             <Home className="w-3 h-3" />
             <span>Private</span>
           </div>

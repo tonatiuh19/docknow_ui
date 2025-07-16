@@ -7,12 +7,13 @@ import { useAppDispatch, useAppSelector } from "@/store";
 import { fetchPorts } from "@/store/slices/portsSlice";
 import { Search, Calendar, MapPin } from "lucide-react";
 import { FaCheck } from "react-icons/fa6";
-import Hero from "@/components/Hero";
-import SearchBar from "@/components/SearchBar";
-import FeaturedPorts from "@/components/FeaturedPorts";
-import FeaturedPrivatePorts from "@/components/FeaturedPrivatePorts";
-import Features from "@/components/Features";
-import ReadyToFindPortCTA from "@/components/ReadyToFindPortCTA";
+import Hero from "@/components/Hero/Hero";
+import SearchBar from "@/components/SearchBar/SearchBar";
+import FeaturedPorts from "@/components/FeaturedPorts/FeaturedPorts";
+import FeaturedPrivatePorts from "@/components/FeaturedPrivatePorts/FeaturedPrivatePorts";
+import Features from "@/components/Features/Features";
+import ReadyToFindPortCTA from "@/components/ReadyToFindPortCTA/ReadyToFindPortCTA";
+import GoogleMap from "@/components/GoogleMap/GoogleMap";
 
 export default function Home() {
   const { t } = useTranslation("common");
@@ -34,50 +35,39 @@ export default function Home() {
       <section className="py-16 sm:py-24 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-            {/* Left side - Images and Stats */}
+            {/* Left side - Interactive Map with Stats */}
             <div className="relative order-2 lg:order-1">
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                {/* Top Left - Main yacht image with stat */}
-                <div className="relative">
-                  <div className="aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-br from-ocean-500 to-ocean-700">
-                    <img
-                      src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                      alt="Luxury yacht at marina"
-                      className="w-full h-full object-cover"
-                    />
+              <div className="relative">
+                {/* Main Map Container */}
+                <div className="aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-br from-ocean-500 to-ocean-700 shadow-2xl">
+                  <GoogleMap height="100%" />
+                </div>
+
+                {/* Stats Overlays */}
+                {/* Partner Marinas Stat */}
+                <div className="absolute -top-2 sm:-top-4 -left-2 sm:-left-4 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-xl border border-gray-100 z-10">
+                  <div className="text-2xl sm:text-3xl font-bold text-navy-800">
+                    100+
                   </div>
-                  {/* Stat overlay */}
-                  <div className="absolute -top-2 sm:-top-4 -left-2 sm:-left-4 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-xl border border-gray-100">
-                    <div className="text-2xl sm:text-3xl font-bold text-navy-800">
-                      100+
-                    </div>
-                    <div className="text-xs sm:text-sm text-gray-600 font-medium">
-                      Partner Marinas
-                    </div>
+                  <div className="text-xs sm:text-sm text-gray-600 font-medium">
+                    Partner Marinas
                   </div>
                 </div>
 
-                {/* Top Right - Yacht from above */}
-                <div className="relative aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-br from-navy-600 to-navy-800 mt-4 sm:mt-8">
-                  <img
-                    src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                    alt="Yacht aerial view"
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Stat overlay */}
-                  <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 bg-ocean-500 text-white rounded-lg sm:rounded-xl p-2 sm:p-3 shadow-lg">
-                    <div className="text-xl sm:text-2xl font-bold">300+</div>
-                    <div className="text-xs opacity-90">Available Berths</div>
-                  </div>
+                {/* Available Berths Stat */}
+                <div className="absolute -bottom-2 sm:-bottom-4 -right-2 sm:-right-4 bg-ocean-500 text-white rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-xl z-10">
+                  <div className="text-xl sm:text-2xl font-bold">300+</div>
+                  <div className="text-xs opacity-90">Available Berths</div>
                 </div>
 
-                {/* Bottom Left - Marina yacht */}
-                <div className="aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-br from-ocean-400 to-ocean-600 -mt-4 sm:-mt-8">
-                  <img
-                    src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                    alt="Yacht at dock"
-                    className="w-full h-full object-cover"
-                  />
+                {/* Global Coverage Stat */}
+                <div className="absolute top-1/2 -right-2 sm:-right-4 bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 shadow-xl border border-gray-100 z-10 transform -translate-y-1/2">
+                  <div className="text-lg sm:text-xl font-bold text-navy-800">
+                    50+
+                  </div>
+                  <div className="text-xs text-gray-600 font-medium">
+                    Countries
+                  </div>
                 </div>
               </div>
             </div>
@@ -85,13 +75,13 @@ export default function Home() {
             {/* Right side - Content */}
             <div className="lg:pl-8 order-1 lg:order-2 text-center lg:text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-800 mb-4 sm:mb-6 leading-tight">
-                Give Your Yacht a Home, Wherever You Go
+                Discover Marinas Worldwide with Our Global Network
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                At Dock Now, we connect yacht owners with the best docking spots
-                around the world. Whether it's for a night or an extended stay,
-                we give you instant access to premium moorings with just a few
-                clicks.
+                At Dock Now, we connect yacht owners with premium docking spots
+                across the globe. Our interactive platform gives you instant
+                access to verified marinas in over 50 countries, making it easy
+                to find the perfect berth wherever your journey takes you.
               </p>
 
               {/* Features list */}

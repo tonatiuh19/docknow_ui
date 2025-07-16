@@ -93,20 +93,11 @@ export default function Header() {
         <div className={styles.navbar}>
           {/* Logo - Left */}
           <Link href="/" className={styles.logo}>
-            <div
-              className={`${styles.logoIcon} ${
-                isScrolled ? styles.logoIconScrolled : styles.logoIconDefault
-              }`}
-            >
-              <Anchor
-                className={`${styles.logoIconArrow} ${
-                  isScrolled
-                    ? styles.logoIconScrolledArrow
-                    : styles.logoIconDefaultArrow
-                }`}
-              />
-            </div>
-            <span className={styles.logoText}>DOCK NOW</span>
+            <img
+              src="https://garbrix.com/navios/assets/images/logo.png"
+              alt="DOCK NOW Logo"
+              className={styles.logoImage}
+            />
           </Link>
 
           {/* Desktop Navigation - Center */}
