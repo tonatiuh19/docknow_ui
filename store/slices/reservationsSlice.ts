@@ -151,8 +151,17 @@ const reservationsSlice = createSlice({
         state.error = action.error.message || "Failed to create reservation";
       })
       // Fetch User Reservations
+      .addCase(fetchUserReservations.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
       .addCase(fetchUserReservations.fulfilled, (state, action) => {
+        state.loading = false;
         state.reservations = action.payload;
+      })
+      .addCase(fetchUserReservations.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to fetch reservations";
       })
       // Cancel Reservation
       .addCase(cancelReservation.fulfilled, (state, action) => {

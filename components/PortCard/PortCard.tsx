@@ -123,7 +123,7 @@ export default function PortCard({ port }: PortCardProps) {
             href={`/booking/${port.id}`}
             className="flex-1 bg-navy-800 text-white px-4 py-3 rounded-xl text-center font-semibold hover:bg-navy-900 transition-all duration-300 text-sm shadow-lg"
           >
-            View Details
+            Book Now
           </Link>
         </div>
       </div>

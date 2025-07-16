@@ -1,0 +1,53 @@
+/* Ports New Page Styles */
+
+.portsNewContainer {
+  min-height: 100vh;
+  background-color: #f9fafb; /* bg-gray-50 */
+}
+
+.headerSection {
+  background-color: var(--color-ocean-600);
+}
+
+.headerContainer {
+  max-width: 80rem; /* max-w-7xl */
+  margin: 0 auto;
+  padding: 0 1rem 3rem 1rem; /* px-4 pb-12 */
+  padding-top: 6rem; /* pt-24 - accounts for fixed header (~4rem) + extra space */
+}
+
+@media (min-width: 640px) {
+  .headerContainer {
+    padding-left: 1.5rem; /* sm:px-6 */
+    padding-right: 1.5rem;
+    padding-top: 7rem; /* More space on larger screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .headerContainer {
+    padding-left: 2rem; /* lg:px-8 */
+    padding-right: 2rem;
+    padding-top: 8rem; /* Even more space on desktop */
+  }
+}
+
+.contentSection {
+  max-width: 80rem; /* max-w-7xl */
+  margin: 0 auto;
+  padding: 4rem 1rem 3rem 1rem; /* pt-16 pb-12 px-4 */
+}
+
+@media (min-width: 640px) {
+  .contentSection {
+    padding-left: 1.5rem; /* sm:px-6 */
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contentSection {
+    padding-left: 2rem; /* lg:px-8 */
+    padding-right: 2rem;
+  }
+}

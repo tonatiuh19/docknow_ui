@@ -14,6 +14,7 @@ import {
   MapPin,
   Star,
 } from "lucide-react";
+import styles from "./port-detail/booking.module.css";
 
 export default function BookingPage() {
   const { t } = useTranslation("common");

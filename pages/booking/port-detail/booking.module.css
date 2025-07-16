@@ -1,0 +1,107 @@
+/* Port Booking Detail Page Styles */
+
+.bookingContainer {
+  min-height: 100vh;
+  background-color: #f9fafb; /* bg-gray-50 */
+}
+
+.headerSection {
+  background-color: var(--color-ocean-600);
+}
+
+.headerContainer {
+  max-width: 80rem; /* max-w-7xl */
+  margin: 0 auto;
+  padding: 0 1rem 3rem 1rem; /* px-4 pb-12 */
+  padding-top: 8rem; /* pt-32 - provides clearance for header */
+}
+
+@media (min-width: 640px) {
+  .headerContainer {
+    padding-left: 1.5rem; /* sm:px-6 */
+    padding-right: 1.5rem;
+    padding-top: 10rem; /* More space on larger screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .headerContainer {
+    padding-left: 2rem; /* lg:px-8 */
+    padding-right: 2rem;
+    padding-top: 12rem; /* Even more space on desktop */
+  }
+}
+
+.contentSection {
+  max-width: 80rem; /* max-w-7xl */
+  margin: 0 auto;
+  padding: 4rem 1rem 3rem 1rem; /* pt-16 pb-12 px-4 */
+}
+
+@media (min-width: 640px) {
+  .contentSection {
+    padding-left: 1.5rem; /* sm:px-6 */
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contentSection {
+    padding-left: 2rem; /* lg:px-8 */
+    padding-right: 2rem;
+  }
+}
+
+.bookingCard {
+  background: white;
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); /* shadow-sm */
+  border: 1px solid #e5e7eb; /* border */
+  padding: 1.5rem; /* p-6 */
+}
+
+.bookingForm {
+  display: grid;
+  gap: 1.5rem; /* gap-6 */
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* gap-2 */
+}
+
+.label {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  color: #374151; /* text-gray-700 */
+}
+
+.input {
+  padding: 0.75rem; /* p-3 */
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  border-radius: 0.375rem; /* rounded-md */
+  font-size: 0.875rem; /* text-sm */
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-ocean-600);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.submitButton {
+  background-color: var(--color-ocean-600);
+  color: white;
+  padding: 0.75rem 1.5rem; /* px-6 py-3 */
+  border-radius: 0.375rem; /* rounded-md */
+  font-weight: 500; /* font-medium */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+  background-color: var(--color-ocean-700);
+}

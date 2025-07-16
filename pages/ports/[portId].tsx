@@ -20,6 +20,7 @@ import {
   Globe,
   ArrowLeft,
 } from "lucide-react";
+import styles from "./port-detail/port-detail.module.css";
 
 export default function PortDetailPage() {
   const { t } = useTranslation("common");

@@ -31,12 +31,38 @@ export default function Header() {
   const userMenuRef = useRef<HTMLDivElement>(null);
   const languageMenuRef = useRef<HTMLDivElement>(null);
 
+  // Set initial header state based on page type
+  useEffect(() => {
+    const hasHeroSection = router.pathname === "/";
+    if (!hasHeroSection) {
+      setIsScrolled(true); // Start with scrolled state for pages without hero sections
+    }
+  }, [router.pathname]);
+
   // Scroll detection
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const threshold = window.innerHeight * 0.5;
-      // Change header style when scrolled past hero section (approximately 50vh for better UX)
+
+      // Different thresholds based on page type
+      let threshold: number;
+
+      // Pages with large hero sections (home page)
+      if (router.pathname === "/") {
+        threshold = window.innerHeight * 0.4; // 40vh for home page
+      }
+      // Pages with medium hero sections (ports list)
+      else if (
+        router.pathname === "/ports" ||
+        router.pathname === "/ports-list"
+      ) {
+        threshold = 200; // 200px threshold for ports pages
+      }
+      // Pages with smaller header sections (reservations, etc.)
+      else {
+        threshold = 50; // Small 50px threshold for pages with minimal headers
+      }
+
       setIsScrolled(scrollPosition > threshold);
     };
 
