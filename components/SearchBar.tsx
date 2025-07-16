@@ -53,7 +53,7 @@ export default function SearchBar({
 
   return (
     <div
-      className={`bg-white rounded-2xl shadow-lg border ${
+      className={`bg-white rounded-2xl shadow-xl border border-gray-100 ${
         compact ? "p-4" : "p-6"
       } ${fullWidth ? "p-6" : ""}`}
     >
@@ -62,39 +62,80 @@ export default function SearchBar({
           // Compact version for hero section
           <div className="space-y-4">
             {/* Location */}
-            <div>
+            <div className="relative">
+              <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
                 type="text"
                 placeholder="Where do you want to dock?"
                 value={searchData.location}
                 onChange={(e) => handleInputChange("location", e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ocean-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-ocean-500 focus:border-transparent transition-all duration-300 text-gray-700 placeholder-gray-400"
               />
             </div>
 
             {/* Dates Row */}
             <div className="grid grid-cols-2 gap-3">
-              <input
-                type="date"
-                value={searchData.checkIn}
-                onChange={(e) => handleInputChange("checkIn", e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ocean-500 focus:border-transparent text-sm"
-              />
-              <input
-                type="date"
-                value={searchData.checkOut}
-                onChange={(e) => handleInputChange("checkOut", e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ocean-500 focus:border-transparent text-sm"
-              />
+              <div className="relative">
+                <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <input
+                  type="date"
+                  value={searchData.checkIn}
+                  onChange={(e) => handleInputChange("checkIn", e.target.value)}
+                  className="w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-ocean-500 focus:border-transparent text-sm transition-all duration-300"
+                />
+              </div>
+              <div className="relative">
+                <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <input
+                  type="date"
+                  value={searchData.checkOut}
+                  onChange={(e) =>
+                    handleInputChange("checkOut", e.target.value)
+                  }
+                  className="w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-ocean-500 focus:border-transparent text-sm transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            {/* Additional Options */}
+            <div className="grid grid-cols-2 gap-3">
+              <div className="relative">
+                <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <select
+                  value={searchData.guests}
+                  onChange={(e) =>
+                    handleInputChange("guests", parseInt(e.target.value))
+                  }
+                  className="w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-ocean-500 focus:border-transparent text-sm transition-all duration-300 appearance-none bg-white"
+                >
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                    <option key={num} value={num}>
+                      {num} Guest{num !== 1 ? "s" : ""}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="relative">
+                <Ruler className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <input
+                  type="number"
+                  placeholder="Boat Length (ft)"
+                  value={searchData.boatLength}
+                  onChange={(e) =>
+                    handleInputChange("boatLength", e.target.value)
+                  }
+                  className="w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-ocean-500 focus:border-transparent text-sm transition-all duration-300"
+                />
+              </div>
             </div>
 
             {/* Search Button */}
             <button
               type="submit"
-              className="w-full bg-ocean-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-ocean-700 transition-colors flex items-center justify-center space-x-2"
+              className="w-full bg-gradient-to-r from-ocean-600 to-ocean-700 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2 group"
             >
-              <Search className="w-5 h-5" />
-              <span>Search Ports</span>
+              <Search className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+              <span>Search Available Ports</span>
             </button>
           </div>
         ) : fullWidth ? (

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -83,38 +82,36 @@ export default function PortDetailPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 space-y-6 sm:space-y-8">
             {/* Images Gallery */}
             <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-              <div className="relative h-96">
-                <Image
+              <div className="relative h-64 sm:h-80 lg:h-96">
+                <img
                   src={port.images[selectedImageIndex] || port.images[0]}
                   alt={port.name}
-                  fill
-                  className="object-cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
               {port.images.length > 1 && (
-                <div className="p-4">
-                  <div className="grid grid-cols-4 gap-2">
+                <div className="p-3 sm:p-4">
+                  <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
                     {port.images.map((image, index) => (
                       <button
                         key={index}
                         onClick={() => setSelectedImageIndex(index)}
-                        className={`relative h-20 rounded-lg overflow-hidden ${
+                        className={`relative h-16 sm:h-20 rounded-lg overflow-hidden ${
                           selectedImageIndex === index
                             ? "ring-2 ring-ocean-500"
                             : ""
                         }`}
                       >
-                        <Image
+                        <img
                           src={image}
                           alt={`${port.name} ${index + 1}`}
-                          fill
-                          className="object-cover"
+                          className="w-full h-full object-cover"
                         />
                       </button>
                     ))}
@@ -124,52 +121,54 @@ export default function PortDetailPage() {
             </div>
 
             {/* Port Information */}
-            <div className="bg-white rounded-xl shadow-sm p-6">
-              <div className="flex items-start justify-between mb-6">
-                <div>
-                  <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-4 sm:mb-6">
+                <div className="mb-4 sm:mb-0">
+                  <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                     {port.name}
                   </h1>
                   <div className="flex items-center text-gray-600 mb-2">
-                    <MapPin className="w-5 h-5 mr-2" />
-                    <span>
+                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                    <span className="text-sm sm:text-base">
                       {port.location.city}, {port.location.country}
                     </span>
                   </div>
                   <div className="flex items-center">
-                    <Star className="w-5 h-5 text-yellow-400 fill-current mr-1" />
-                    <span className="font-medium text-gray-900">
+                    <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current mr-1" />
+                    <span className="font-medium text-gray-900 text-sm sm:text-base">
                       {port.rating}
                     </span>
-                    <span className="text-gray-500 ml-1">
+                    <span className="text-gray-500 ml-1 text-sm sm:text-base">
                       ({port.reviews.length} reviews)
                     </span>
                   </div>
                 </div>
-                <div className="text-right">
-                  <div className="text-3xl font-bold text-ocean-600">
+                <div className="text-center sm:text-right">
+                  <div className="text-2xl sm:text-3xl font-bold text-ocean-600">
                     ${port.pricePerNight}
                   </div>
-                  <div className="text-gray-500">per night</div>
+                  <div className="text-gray-500 text-sm sm:text-base">
+                    per night
+                  </div>
                 </div>
               </div>
 
-              <p className="text-gray-700 leading-relaxed mb-6">
+              <p className="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
                 {port.description}
               </p>
 
               {/* Availability */}
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-lg font-semibold text-green-900">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between">
+                  <div className="mb-2 sm:mb-0">
+                    <h3 className="text-base sm:text-lg font-semibold text-green-900">
                       Available Spaces
                     </h3>
-                    <p className="text-green-700">
+                    <p className="text-green-700 text-sm sm:text-base">
                       {port.availableSpaces} of {port.capacity} spaces available
                     </p>
                   </div>
-                  <div className="w-20 bg-green-200 rounded-full h-3">
+                  <div className="w-full sm:w-20 bg-green-200 rounded-full h-3">
                     <div
                       className="bg-green-500 h-3 rounded-full"
                       style={{
@@ -184,17 +183,19 @@ export default function PortDetailPage() {
 
               {/* Amenities */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
                   {t("ports.amenities")}
                 </h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                   {port.amenities.map((amenity, index) => (
                     <div
                       key={index}
                       className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg"
                     >
                       {getAmenityIcon(amenity)}
-                      <span className="text-gray-700">{amenity}</span>
+                      <span className="text-gray-700 text-sm sm:text-base">
+                        {amenity}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -333,49 +334,51 @@ export default function PortDetailPage() {
           </div>
 
           {/* Booking Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="bg-white rounded-xl shadow-sm p-6 sticky top-8">
-              <div className="text-center mb-6">
-                <div className="text-3xl font-bold text-ocean-600 mb-1">
+          <div className="lg:col-span-1 order-first lg:order-last">
+            <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 lg:sticky lg:top-8">
+              <div className="text-center mb-4 sm:mb-6">
+                <div className="text-2xl sm:text-3xl font-bold text-ocean-600 mb-1">
                   ${port.pricePerNight}
                 </div>
-                <div className="text-gray-500">per night</div>
+                <div className="text-gray-500 text-sm sm:text-base">
+                  per night
+                </div>
               </div>
 
               <Link
                 href={`/booking/${port.id}`}
-                className="w-full bg-ocean-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-ocean-700 transition-colors flex items-center justify-center mb-4"
+                className="w-full bg-ocean-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-ocean-700 transition-colors flex items-center justify-center mb-4 text-sm sm:text-base"
               >
                 <Users className="w-4 h-4 mr-2" />
                 {t("ports.bookNow")}
               </Link>
 
-              <div className="text-center text-sm text-gray-500 mb-6">
+              <div className="text-center text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6">
                 Free cancellation up to 24 hours before check-in
               </div>
 
               {/* Contact Information */}
-              <div className="border-t pt-6">
-                <h4 className="font-semibold text-gray-900 mb-4">
+              <div className="border-t pt-4 sm:pt-6">
+                <h4 className="font-semibold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">
                   {t("ports.contact")}
                 </h4>
-                <div className="space-y-3">
-                  <div className="flex items-center text-sm text-gray-600">
-                    <Phone className="w-4 h-4 mr-3" />
-                    <span>{port.contact.phone}</span>
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex items-center text-xs sm:text-sm text-gray-600">
+                    <Phone className="w-4 h-4 mr-3 flex-shrink-0" />
+                    <span className="break-all">{port.contact.phone}</span>
                   </div>
-                  <div className="flex items-center text-sm text-gray-600">
-                    <Mail className="w-4 h-4 mr-3" />
-                    <span>{port.contact.email}</span>
+                  <div className="flex items-center text-xs sm:text-sm text-gray-600">
+                    <Mail className="w-4 h-4 mr-3 flex-shrink-0" />
+                    <span className="break-all">{port.contact.email}</span>
                   </div>
                   {port.contact.website && (
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Globe className="w-4 h-4 mr-3" />
+                    <div className="flex items-center text-xs sm:text-sm text-gray-600">
+                      <Globe className="w-4 h-4 mr-3 flex-shrink-0" />
                       <a
                         href={port.contact.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-ocean-600 hover:text-ocean-700"
+                        className="text-ocean-600 hover:text-ocean-700 break-all"
                       >
                         Visit Website
                       </a>
@@ -385,13 +388,15 @@ export default function PortDetailPage() {
               </div>
 
               {/* Location */}
-              <div className="border-t pt-6 mt-6">
-                <h4 className="font-semibold text-gray-900 mb-3">Location</h4>
-                <div className="text-sm text-gray-600 mb-4">
+              <div className="border-t pt-4 sm:pt-6 mt-4 sm:mt-6">
+                <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
+                  Location
+                </h4>
+                <div className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
                   {port.location.address}
                 </div>
-                <div className="bg-gray-100 rounded-lg h-40 flex items-center justify-center">
-                  <span className="text-gray-500">Map View</span>
+                <div className="bg-gray-100 rounded-lg h-32 sm:h-40 flex items-center justify-center">
+                  <span className="text-gray-500 text-sm">Map View</span>
                 </div>
               </div>
             </div>
