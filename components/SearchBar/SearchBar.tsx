@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next";
 import { useAppDispatch } from "@/store";
 import { setSearchFilters } from "@/store/slices/portsSlice";
 import { Search, MapPin, Calendar, Users, Ruler } from "lucide-react";
+import styles from "./SearchBar.module.css";
 
 interface SearchBarProps {
   compact?: boolean;
@@ -53,23 +54,27 @@ export default function SearchBar({
 
   return (
     <div
-      className={`bg-white rounded-2xl shadow-xl border border-gray-100 ${
-        compact ? "p-4" : "p-6"
-      } ${fullWidth ? "p-6" : ""}`}
+      className={`${styles.searchContainer} ${
+        compact
+          ? styles.compactContainer
+          : fullWidth
+          ? styles.fullWidthContainer
+          : styles.regularContainer
+      }`}
     >
       <form onSubmit={handleSearch}>
         {compact ? (
           // Compact version for hero section
-          <div className="space-y-4">
+          <div className={styles.formContainer}>
             {/* Location */}
-            <div className="relative">
-              <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <div className={styles.inputGroup}>
+              <MapPin className={styles.inputIcon} />
               <input
                 type="text"
                 placeholder="Where do you want to dock?"
                 value={searchData.location}
                 onChange={(e) => handleInputChange("location", e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-ocean-500 focus:border-transparent transition-all duration-300 text-gray-700 placeholder-gray-400"
+                className={styles.input}
               />
             </div>
 
@@ -130,11 +135,8 @@ export default function SearchBar({
             </div>
 
             {/* Search Button */}
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-ocean-600 to-ocean-700 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2 group"
-            >
-              <Search className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+            <button type="submit" className={styles.searchButton}>
+              <Search className={styles.searchButtonIcon} />
               <span>Search Available Ports</span>
             </button>
           </div>

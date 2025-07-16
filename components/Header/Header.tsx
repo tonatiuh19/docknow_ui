@@ -15,6 +15,7 @@ import {
   Search,
   Calendar,
 } from "lucide-react";
+import styles from "./Header.module.css";
 
 export default function Header() {
   const { t } = useTranslation("common");
@@ -34,8 +35,9 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      // Change header style when scrolled past hero section (approximately 80vh)
-      setIsScrolled(scrollPosition > window.innerHeight * 0.8);
+      const threshold = window.innerHeight * 0.5;
+      // Change header style when scrolled past hero section (approximately 50vh for better UX)
+      setIsScrolled(scrollPosition > threshold);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -83,71 +85,57 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-navy-900/95 backdrop-blur-md shadow-lg border-b border-navy-700"
-          : "bg-transparent"
+      className={`${styles.header} ${
+        isScrolled ? styles.headerScrolled : styles.headerTransparent
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+      <div className={styles.container}>
+        <div className={styles.navbar}>
           {/* Logo - Left */}
-          <Link href="/" className="flex items-center space-x-3 group">
+          <Link href="/" className={styles.logo}>
             <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg ${
-                isScrolled ? "bg-ocean-600" : "bg-white"
+              className={`${styles.logoIcon} ${
+                isScrolled ? styles.logoIconScrolled : styles.logoIconDefault
               }`}
             >
               <Anchor
-                className={`w-6 h-6 ${
-                  isScrolled ? "text-white" : "text-ocean-600"
+                className={`${styles.logoIconArrow} ${
+                  isScrolled
+                    ? styles.logoIconScrolledArrow
+                    : styles.logoIconDefaultArrow
                 }`}
               />
             </div>
-            <span
-              className={`text-2xl font-bold tracking-wide transition-colors duration-300 ${
-                isScrolled ? "text-white" : "text-white"
-              }`}
-            >
-              DOCK NOW
-            </span>
+            <span className={styles.logoText}>DOCK NOW</span>
           </Link>
 
           {/* Desktop Navigation - Center */}
           <nav
-            className={`hidden lg:flex items-center rounded-full px-8 py-3 border transition-all duration-300 ${
-              isScrolled
-                ? "bg-navy-800/80 backdrop-blur-md border-navy-600"
-                : "bg-white/10 backdrop-blur-md border-white/20"
+            className={`${styles.nav} ${
+              isScrolled ? styles.navScrolled : styles.navDefault
             }`}
           >
-            <div className="flex items-center space-x-8">
+            <div className={styles.navLinks}>
               <Link
                 href="/"
-                className={`transition-colors duration-300 font-medium text-sm ${
-                  isScrolled
-                    ? "text-white hover:text-ocean-300"
-                    : "text-white hover:text-ocean-200"
+                className={`${styles.navLink} ${
+                  isScrolled ? styles.navLinkScrolled : styles.navLinkDefault
                 }`}
               >
                 Home
               </Link>
               <Link
                 href="/about"
-                className={`transition-colors duration-300 font-medium text-sm ${
-                  isScrolled
-                    ? "text-white hover:text-ocean-300"
-                    : "text-white hover:text-ocean-200"
+                className={`${styles.navLink} ${
+                  isScrolled ? styles.navLinkScrolled : styles.navLinkDefault
                 }`}
               >
                 About Us
               </Link>
               <Link
                 href="/ports"
-                className={`transition-colors duration-300 font-medium text-sm ${
-                  isScrolled
-                    ? "text-white hover:text-ocean-300"
-                    : "text-white hover:text-ocean-200"
+                className={`${styles.navLink} ${
+                  isScrolled ? styles.navLinkScrolled : styles.navLinkDefault
                 }`}
               >
                 Discover Ports
@@ -155,10 +143,8 @@ export default function Header() {
               {isAuthenticated && (
                 <Link
                   href="/reservations"
-                  className={`transition-colors duration-300 font-medium text-sm ${
-                    isScrolled
-                      ? "text-white hover:text-ocean-300"
-                      : "text-white hover:text-ocean-200"
+                  className={`${styles.navLink} ${
+                    isScrolled ? styles.navLinkScrolled : styles.navLinkDefault
                   }`}
                 >
                   My Reservations
@@ -168,38 +154,38 @@ export default function Header() {
           </nav>
 
           {/* User Section - Right */}
-          <div className="flex items-center space-x-4">
+          <div className={styles.userSection}>
             {/* Language Selector */}
-            <div className="relative hidden md:block" ref={languageMenuRef}>
+            <div className={styles.languageSelector} ref={languageMenuRef}>
               <button
                 onClick={() => setLanguageMenuOpen(!languageMenuOpen)}
-                className={`flex items-center space-x-2 transition-colors ${
+                className={`${styles.languageButton} ${
                   isScrolled
-                    ? "text-white hover:text-ocean-300"
-                    : "text-white hover:text-ocean-200"
+                    ? styles.languageButtonScrolled
+                    : styles.languageButtonDefault
                 }`}
               >
-                <Globe className="w-4 h-4" />
-                <span className="text-sm font-medium">
+                <Globe className={styles.languageIcon} />
+                <span className={styles.languageFlag}>
                   {languages.find((lang) => lang.code === language)?.flag}
                 </span>
               </button>
 
               {languageMenuOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl py-2 z-50 border border-gray-100">
+                <div className={styles.dropdown}>
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
                       onClick={() =>
                         handleLanguageChange(lang.code as "en" | "fr" | "es")
                       }
-                      className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${
+                      className={`${styles.dropdownItem} ${
                         language === lang.code
-                          ? "bg-ocean-50 text-ocean-600"
-                          : "text-gray-700"
+                          ? styles.dropdownItemActive
+                          : styles.dropdownItemDefault
                       }`}
                     >
-                      <span className="mr-2">{lang.flag}</span>
+                      <span style={{ marginRight: "0.5rem" }}>{lang.flag}</span>
                       {lang.name}
                     </button>
                   ))}
@@ -209,24 +195,24 @@ export default function Header() {
 
             {/* Auth Section */}
             {isAuthenticated ? (
-              <div className="relative hidden md:block" ref={userMenuRef}>
+              <div className={styles.authSection} ref={userMenuRef}>
                 <button
                   onClick={() => setUserMenuOpen(!userMenuOpen)}
-                  className={`flex items-center space-x-2 rounded-full px-4 py-2 border transition-all duration-300 ${
+                  className={`${styles.userButton} ${
                     isScrolled
-                      ? "bg-navy-800/80 backdrop-blur-md border-navy-600 text-white hover:bg-navy-700/80"
-                      : "bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20"
+                      ? styles.userButtonScrolled
+                      : styles.userButtonDefault
                   }`}
                 >
-                  <div className="w-6 h-6 bg-ocean-500 rounded-full flex items-center justify-center">
-                    <User className="w-3 h-3 text-white" />
+                  <div className={styles.userAvatar}>
+                    <User className={styles.userAvatarIcon} />
                   </div>
-                  <span className="text-sm font-medium">
+                  <span className={styles.userName}>
                     {user?.name || "User"}
                   </span>
                   <svg
-                    className={`w-4 h-4 transition-transform ${
-                      userMenuOpen ? "rotate-180" : ""
+                    className={`${styles.dropdownArrow} ${
+                      userMenuOpen ? styles.dropdownArrowOpen : ""
                     }`}
                     fill="none"
                     stroke="currentColor"
@@ -242,38 +228,38 @@ export default function Header() {
                 </button>
 
                 {userMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl py-2 z-50 border border-gray-100">
+                  <div className={styles.dropdown}>
                     <Link
                       href="/profile"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                      className={styles.userMenuLink}
                       onClick={() => setUserMenuOpen(false)}
                     >
-                      <div className="flex items-center space-x-2">
-                        <User className="w-4 h-4" />
+                      <div className={styles.userMenuContent}>
+                        <User className={styles.profileIcon} />
                         <span>Profile</span>
                       </div>
                     </Link>
                     <Link
                       href="/reservations"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                      className={styles.userMenuLink}
                       onClick={() => setUserMenuOpen(false)}
                     >
-                      <div className="flex items-center space-x-2">
-                        <Calendar className="w-4 h-4" />
+                      <div className={styles.userMenuContent}>
+                        <Calendar className={styles.calendarIcon} />
                         <span>My Reservations</span>
                       </div>
                     </Link>
-                    <hr className="my-2" />
+                    <hr className={styles.userMenuDivider} />
                     <button
                       onClick={() => {
                         handleSignOut();
                         setUserMenuOpen(false);
                       }}
-                      className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                      className={styles.userMenuSignOut}
                     >
-                      <div className="flex items-center space-x-2">
+                      <div className={styles.userMenuContent}>
                         <svg
-                          className="w-4 h-4"
+                          className={styles.logoutIcon}
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -292,23 +278,23 @@ export default function Header() {
                 )}
               </div>
             ) : (
-              <div className="hidden md:flex items-center space-x-3">
+              <div className={styles.authButtons}>
                 <Link
                   href="/auth/signin"
-                  className={`transition-colors font-medium text-sm ${
+                  className={`${styles.signInLink} ${
                     isScrolled
-                      ? "text-white hover:text-ocean-300"
-                      : "text-white hover:text-ocean-200"
+                      ? styles.signInLinkScrolled
+                      : styles.signInLinkDefault
                   }`}
                 >
                   Sign In
                 </Link>
                 <Link
                   href="/auth/signup"
-                  className={`px-4 py-2 rounded-full border transition-all duration-300 font-medium text-sm ${
+                  className={`${styles.signUpButton} ${
                     isScrolled
-                      ? "bg-ocean-600 text-white border-ocean-600 hover:bg-ocean-700"
-                      : "bg-white/10 backdrop-blur-md text-white border-white/20 hover:bg-white/20"
+                      ? styles.signUpButtonScrolled
+                      : styles.signUpButtonDefault
                   }`}
                 >
                   Sign Up
@@ -317,19 +303,19 @@ export default function Header() {
             )}
 
             {/* Mobile menu button */}
-            <div className="lg:hidden">
+            <div>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className={`transition-colors p-1 ${
+                className={`${styles.mobileMenuButton} ${
                   isScrolled
-                    ? "text-white hover:text-ocean-300"
-                    : "text-white hover:text-ocean-200"
+                    ? styles.mobileMenuButtonScrolled
+                    : styles.mobileMenuButtonDefault
                 }`}
               >
                 {mobileMenuOpen ? (
-                  <X className="w-6 h-6" />
+                  <X className={styles.mobileMenuIcon} />
                 ) : (
-                  <Menu className="w-6 h-6" />
+                  <Menu className={styles.mobileMenuIcon} />
                 )}
               </button>
             </div>
@@ -338,26 +324,26 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20">
-              <div className="space-y-3">
+          <div className={styles.mobileMenu}>
+            <div className={styles.mobileMenuContent}>
+              <div className={styles.mobileMenuLinks}>
                 <Link
                   href="/"
-                  className="block text-white hover:text-ocean-200 transition-colors duration-300 font-medium py-2"
+                  className={styles.mobileMenuLink}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Home
                 </Link>
                 <Link
                   href="/about"
-                  className="block text-white hover:text-ocean-200 transition-colors duration-300 font-medium py-2"
+                  className={styles.mobileMenuLink}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   About Us
                 </Link>
                 <Link
                   href="/ports"
-                  className="block text-white hover:text-ocean-200 transition-colors duration-300 font-medium py-2"
+                  className={styles.mobileMenuLink}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Discover Ports
@@ -365,7 +351,7 @@ export default function Header() {
                 {isAuthenticated && (
                   <Link
                     href="/reservations"
-                    className="block text-white hover:text-ocean-200 transition-colors duration-300 font-medium py-2"
+                    className={styles.mobileMenuLink}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     My Reservations
@@ -373,20 +359,20 @@ export default function Header() {
                 )}
 
                 {/* Mobile Auth Section */}
-                <div className="border-t border-white/20 pt-3 mt-3">
+                <div className={styles.mobileMenuDivider}>
                   {isAuthenticated ? (
-                    <div className="space-y-3">
-                      <div className="flex items-center space-x-2 text-white py-2">
-                        <div className="w-6 h-6 bg-ocean-500 rounded-full flex items-center justify-center">
-                          <User className="w-3 h-3 text-white" />
+                    <div className={styles.mobileMenuLinks}>
+                      <div className={styles.mobileUserInfo}>
+                        <div className={styles.userAvatar}>
+                          <User className={styles.userAvatarIcon} />
                         </div>
-                        <span className="text-sm font-medium">
+                        <span className={styles.userName}>
                           {user?.name || "User"}
                         </span>
                       </div>
                       <Link
                         href="/profile"
-                        className="block text-white hover:text-ocean-200 transition-colors duration-300 font-medium py-2"
+                        className={styles.mobileMenuLink}
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         Profile
@@ -396,23 +382,23 @@ export default function Header() {
                           handleSignOut();
                           setMobileMenuOpen(false);
                         }}
-                        className="block text-white hover:text-ocean-200 transition-colors duration-300 font-medium py-2"
+                        className={styles.mobileSignOutButton}
                       >
                         Sign Out
                       </button>
                     </div>
                   ) : (
-                    <div className="space-y-3">
+                    <div className={styles.mobileMenuLinks}>
                       <Link
                         href="/auth/signin"
-                        className="block text-white hover:text-ocean-200 transition-colors duration-300 font-medium py-2"
+                        className={styles.mobileMenuLink}
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         Sign In
                       </Link>
                       <Link
                         href="/auth/signup"
-                        className="block bg-white/10 text-white px-4 py-2 rounded-xl border border-white/20 text-center font-medium"
+                        className={styles.mobileAuthButton}
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         Sign Up

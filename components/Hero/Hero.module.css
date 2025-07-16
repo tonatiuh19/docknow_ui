@@ -1,0 +1,466 @@
+/* Hero Component Styles */
+
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--color-navy-900) 0%,
+    var(--color-ocean-800) 35%,
+    var(--color-ocean-700) 70%,
+    var(--color-ocean-600) 100%
+  );
+}
+
+.backgroundContainer {
+  position: absolute;
+  inset: 0;
+}
+
+.backgroundVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1000ms;
+}
+
+.videoLoaded {
+  opacity: 0.8;
+}
+
+.videoNotLoaded {
+  opacity: 0;
+}
+
+.fallbackBackground {
+  position: absolute;
+  inset: 0;
+  transition: opacity 1000ms;
+  background: linear-gradient(
+    135deg,
+    var(--color-navy-900) 0%,
+    var(--color-ocean-800) 35%,
+    var(--color-ocean-700) 70%,
+    var(--color-ocean-600) 100%
+  );
+}
+
+.fallbackVisible {
+  opacity: 1;
+}
+
+.fallbackHidden {
+  opacity: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 58, 138, 0.6) 0%,
+    rgba(15, 118, 110, 0.4) 35%,
+    rgba(15, 118, 110, 0.3) 100%
+  );
+  z-index: 10;
+}
+
+.textureOverlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.contentContainer {
+  position: relative;
+  z-index: 20;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 5rem 1rem 3rem;
+}
+
+@media (min-width: 640px) {
+  .contentContainer {
+    padding: 6rem 1.5rem 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contentContainer {
+    padding: 5rem 2rem 3rem;
+  }
+}
+
+.gridLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+}
+
+@media (min-width: 1024px) {
+  .gridLayout {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .gridLayout {
+    min-height: 80vh;
+  }
+}
+
+.contentSide {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .contentSide {
+    text-align: left;
+  }
+}
+
+.headingContainer {
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .headingContainer {
+    margin-bottom: 2rem;
+  }
+}
+
+.mainHeading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+@media (min-width: 640px) {
+  .mainHeading {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .mainHeading {
+    font-size: 3.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainHeading {
+    font-size: 4.5rem;
+  }
+}
+
+.headingPrimary {
+  color: white;
+  display: block;
+}
+
+.headingAccent {
+  color: var(--color-ocean-300);
+  display: block;
+}
+
+.subHeading {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 32rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+@media (min-width: 640px) {
+  .subHeading {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .subHeading {
+    margin: 0;
+  }
+}
+
+.searchForm {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 640px) {
+  .searchForm {
+    padding: 2rem;
+  }
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .formContainer {
+    gap: 1.5rem;
+  }
+}
+
+.formHeader {
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.formTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .formTitle {
+    font-size: 1.25rem;
+  }
+}
+
+.formSubtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}
+
+.inputGroup {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.inputSmallIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  color: white;
+  transition: all 300ms;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .input {
+    padding: 1rem 1rem 1rem 3rem;
+    font-size: 1rem;
+  }
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.inputSmall {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  color: white;
+  transition: all 300ms;
+  font-size: 0.875rem;
+}
+
+.inputSmall::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.inputSmall:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  color: white;
+  transition: all 300ms;
+  font-size: 0.875rem;
+  appearance: none;
+}
+
+.select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.selectOption {
+  color: #1f2937;
+}
+
+.dateGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .dateGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .optionsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+.searchButton {
+  width: 100%;
+  background: var(--color-navy-800);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 300ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .searchButton {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+.searchButton:hover {
+  background: var(--color-navy-900);
+  transform: translateY(-1px);
+}
+
+.searchIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 300ms;
+}
+
+.searchButton:hover .searchIcon {
+  transform: scale(1.1);
+}
+
+.trustIndicators {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .trustIndicators {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.trustItem {
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .trustItem {
+    text-align: left;
+  }
+}
+
+.trustTitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.trustDescription {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .trustDescription {
+    justify-content: flex-start;
+  }
+}
+
+.checkIcon {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-right: 0.25rem;
+  fill: currentColor;
+}
+
+.visualSide {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

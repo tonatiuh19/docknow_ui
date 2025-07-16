@@ -319,3 +319,38 @@ For support, please email support@docknow.com or create an issue in the reposito
 Built with ❤️ using Next.js, React, and modern web technologies
 
 **DockNow** - Making marina reservations simple and accessible worldwide! ⚓
+
+## 🏗️ Component Architecture
+
+This project follows an Angular-like component structure for better maintainability and scalability:
+
+```
+components/
+├── ComponentName/
+│   ├── ComponentName.tsx        # Main component file
+│   ├── ComponentName.module.css # Component-specific styles
+│   └── index.ts                # Export file for clean imports
+```
+
+### Migration Status
+
+✅ **Completed Components:**
+
+- Hero (fully migrated with CSS modules)
+- Header (fully migrated with CSS modules)
+- SearchBar (partially migrated - example implementation)
+
+📋 **Components Available:**
+
+- FeaturedPorts, FeaturedPrivatePorts, Features, Footer
+- Layout, Notifications, PortCard, PortFilters
+- PortsList, PortsMap, ReadyToFindPortCTA, InteractivePortMap
+
+### Benefits
+
+- **Scoped Styling**: CSS modules prevent style conflicts
+- **Better Maintainability**: Styles co-located with components
+- **Developer Experience**: Clear separation of concerns
+- **Performance**: Only load styles for used components
+
+See `COMPONENT_MIGRATION.md` for detailed migration guidelines and examples.

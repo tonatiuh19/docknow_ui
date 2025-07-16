@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import Notifications from "./Notifications";
+import Header from "../Header";
+import Footer from "../Footer";
+import Notifications from "../Notifications";
 
 interface LayoutProps {
   children: ReactNode;

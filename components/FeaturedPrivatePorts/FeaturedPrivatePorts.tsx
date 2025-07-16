@@ -1,8 +1,8 @@
 import { useAppSelector } from "@/store";
 import { Port } from "@/types";
-import PortCard from "./PortCard";
+import PortCard from "../PortCard";
 
-export default function FeaturedPorts() {
+export default function FeaturedPrivatePorts() {
   const { ports, loading } = useAppSelector((state) => state.ports);
 
   if (loading) {
@@ -13,14 +13,16 @@ export default function FeaturedPorts() {
     );
   }
 
-  // Show first 3 ports as featured
-  const featuredPorts = ports.slice(0, 3);
+  // Show first 3 private ports as featured
+  const featuredPrivatePorts = ports
+    .filter((port) => port.portType === "private_port")
+    .slice(0, 3);
 
-  if (featuredPorts.length === 0) {
+  if (featuredPrivatePorts.length === 0) {
     return (
       <div className="text-center py-12">
         <p className="text-gray-500">
-          No featured ports available at the moment.
+          No featured private ports available at the moment.
         </p>
       </div>
     );
@@ -28,7 +30,7 @@ export default function FeaturedPorts() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {featuredPorts.map((port) => (
+      {featuredPrivatePorts.map((port) => (
         <PortCard key={port.id} port={port} />
       ))}
     </div>

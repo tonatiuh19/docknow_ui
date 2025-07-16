@@ -1,0 +1,565 @@
+/* Header Component Styles */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: all 300ms;
+}
+
+.headerScrolled {
+  background: rgba(
+    15,
+    23,
+    42,
+    0.85
+  ); /* navy-900 with more transparency for glass effect */
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%); /* Safari support */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(30, 41, 59, 0.3); /* navy-800 with opacity */
+  border-top: 1px solid rgba(148, 163, 184, 0.1); /* subtle top highlight for glass effect */
+}
+
+.headerTransparent {
+  background: transparent;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.logoIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.logoIcon:hover {
+  transform: scale(1.1);
+}
+
+.logoIconScrolled {
+  background: var(--color-ocean-600);
+}
+
+.logoIconDefault {
+  background: white;
+}
+
+.logoIconArrow {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.logoIconScrolledArrow {
+  color: white;
+}
+
+.logoIconDefaultArrow {
+  color: var(--color-ocean-600);
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  transition: color 300ms;
+  color: white;
+}
+
+.nav {
+  display: none;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  border: 1px solid;
+  transition: all 300ms;
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: flex;
+  }
+}
+
+.navScrolled {
+  background: rgba(30, 41, 59, 0.8); /* navy-800 with opacity */
+  backdrop-filter: blur(12px);
+  border-color: rgba(15, 23, 42, 0.6); /* navy-900 with opacity */
+}
+
+.navDefault {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLink {
+  transition: color 300ms;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.navLinkScrolled {
+  color: white;
+}
+
+.navLinkScrolled:hover {
+  color: var(--color-ocean-300);
+}
+
+.navLinkDefault {
+  color: white;
+}
+
+.navLinkDefault:hover {
+  color: var(--color-ocean-200);
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.languageSelector {
+  position: relative;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .languageSelector {
+    display: block;
+  }
+}
+
+.languageButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 300ms;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.languageButtonScrolled {
+  color: white;
+}
+
+.languageButtonScrolled:hover {
+  color: var(--color-ocean-300);
+}
+
+.languageButtonDefault {
+  color: white;
+}
+
+.languageButtonDefault:hover {
+  color: var(--color-ocean-200);
+}
+
+.languageIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.languageFlag {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  margin-top: 0.5rem;
+  width: 12rem;
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem 0;
+  z-index: 50;
+  border: 1px solid #f3f4f6;
+}
+
+.dropdownItem {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  transition: background-color 300ms;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background: #f9fafb;
+}
+
+.dropdownItemActive {
+  background: #f0f9ff;
+  color: var(--color-ocean-600);
+}
+
+.dropdownItemDefault {
+  color: #374151;
+}
+
+.authSection {
+  position: relative;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .authSection {
+    display: block;
+  }
+}
+
+.userButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  border: 1px solid;
+  transition: all 300ms;
+  background: none;
+  cursor: pointer;
+}
+
+.userButtonScrolled {
+  background: rgba(30, 41, 59, 0.8); /* navy-800 */
+  backdrop-filter: blur(12px);
+  border-color: rgba(15, 23, 42, 0.6); /* navy-900 */
+  color: white;
+}
+
+.userButtonScrolled:hover {
+  background: rgba(15, 23, 42, 0.8); /* navy-900 */
+}
+
+.userButtonDefault {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.userButtonDefault:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.userAvatar {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--color-ocean-500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userAvatarIcon {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: white;
+}
+
+.userName {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.dropdownArrow {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 300ms;
+}
+
+.dropdownArrowOpen {
+  transform: rotate(180deg);
+}
+
+.authButtons {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .authButtons {
+    display: flex;
+  }
+}
+
+.signInLink {
+  transition: color 300ms;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.signInLinkScrolled {
+  color: white;
+}
+
+.signInLinkScrolled:hover {
+  color: var(--color-ocean-300);
+}
+
+.signInLinkDefault {
+  color: white;
+}
+
+.signInLinkDefault:hover {
+  color: var(--color-ocean-200);
+}
+
+.signUpButton {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid;
+  transition: all 300ms;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.signUpButtonScrolled {
+  background: var(--color-ocean-600);
+  color: white;
+  border-color: var(--color-ocean-600);
+}
+
+.signUpButtonScrolled:hover {
+  background: var(--color-ocean-700);
+}
+
+.signUpButtonDefault {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.signUpButtonDefault:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mobileMenuButton {
+  display: block;
+  transition: color 300ms;
+  padding: 0.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .mobileMenuButton {
+    display: none;
+  }
+}
+
+.mobileMenuButtonScrolled {
+  color: white;
+}
+
+.mobileMenuButtonScrolled:hover {
+  color: var(--color-ocean-300);
+}
+
+.mobileMenuButtonDefault {
+  color: white;
+}
+
+.mobileMenuButtonDefault:hover {
+  color: var(--color-ocean-200);
+}
+
+.mobileMenuIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.mobileMenu {
+  display: block;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.mobileMenuContent {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobileMenuLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobileMenuLink {
+  display: block;
+  color: white;
+  transition: color 300ms;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  text-decoration: none;
+}
+
+.mobileMenuLink:hover {
+  color: var(--color-ocean-200);
+}
+
+.mobileMenuDivider {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.mobileUserInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  padding: 0.5rem 0;
+}
+
+.mobileAuthButton {
+  display: block;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.mobileSignOutButton {
+  display: block;
+  color: white;
+  transition: color 300ms;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.mobileSignOutButton:hover {
+  color: var(--color-ocean-200);
+}
+
+.userMenuContent {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoutIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.profileIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.calendarIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.userMenuDivider {
+  margin: 0.5rem 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.userMenuSignOut {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: #dc2626;
+  transition: background-color 300ms;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.userMenuSignOut:hover {
+  background: #fef2f2;
+}
+
+.userMenuLink {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: #374151;
+  transition: background-color 300ms;
+  text-decoration: none;
+}
